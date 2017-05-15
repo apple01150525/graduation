@@ -1,0 +1,1 @@
+document.write("<div style=\"width:298px;height:248px;line-height:248px;border:1px solid #ed4040;color:#ed4040;text-align:center;\">ฤฺศÝาณ300x250</div>")

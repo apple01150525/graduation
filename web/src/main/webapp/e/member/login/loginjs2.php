@@ -1,0 +1,70 @@
+<?php
+require("../../class/connect.php");
+if(!defined('InEmpireCMS'))
+{
+	exit();
+}
+eCheckCloseMods('member');//关闭模块
+$myuserid=(int)getcvar('mluserid');
+$mhavelogin=0;
+if($myuserid)
+{
+	include("../../class/db_sql.php");
+	include("../../member/class/user.php");
+	include("../../data/dbcache/MemberLevel.php");
+	$link=db_connect();
+	$empire=new mysqlquery();
+	$mhavelogin=1;
+	//数据
+	$myusername=RepPostVar(getcvar('mlusername'));
+	$myrnd=RepPostVar(getcvar('mlrnd'));
+	$r=$empire->fetch1("select ".eReturnSelectMemberF('userid,username,groupid,userfen,money,userdate,havemsg,checked')." from ".eReturnMemberTable()." where ".egetmf('userid')."='$myuserid' and ".egetmf('rnd')."='$myrnd' limit 1");
+	if(empty($r[userid])||$r[checked]==0)
+	{
+		EmptyEcmsCookie();
+		$mhavelogin=0;
+	}
+	//会员等级
+	if(empty($r[groupid]))
+	{$groupid=eReturnMemberDefGroupid();}
+	else
+	{$groupid=$r[groupid];}
+	$groupname=$level_r[$groupid]['groupname'];
+	//点数
+	$userfen=$r[userfen];
+	//余额
+	$money=$r[money];
+	//天数
+	$userdate=0;
+	if($r[userdate])
+	{
+		$userdate=$r[userdate]-time();
+		if($userdate<=0)
+		{$userdate=0;}
+		else
+		{$userdate=round($userdate/(24*3600));}
+	}
+	//是否有短消息
+	$havemsg="";
+	if($r[havemsg])
+	{
+		$havemsg="<a href='".$public_r['newsurl']."e/member/msg/' target=_blank><font color=#fff>您有新消息</font></a>";
+	}
+	//$myusername=$r[username];
+	db_close();
+	$empire=null;
+}
+if($mhavelogin==1)
+{
+?>
+document.write('<li class="tb-item"><a class="tb-link" href="javascript:;"><?=$myusername?></a></li><li class="tb-item"><a class="tb-link" href="/e/member/cp/">媒体号</a></li><li class="tb-item"><a class="tb-link" href="/e/member/doaction.php?enews=exit" onclick="return confirm(\'确认要退出?\');\">退出</a></li><style>#mth{display:none}</style>');
+
+<?
+}
+else
+{
+?>
+document.write("   <div id=\"lggoodBox\" style=\"position:absolute; left:369px; top:150px; z-index:1123123123; display:none;\" ><div class=\"title\" id=\"Mdown\">               	<span class=\"t1\">会员登陆</span>              <span class=\"t2\" title=\"关闭\" onClick=\"lggood.style.display=\'none\';bgDiv.style.display=\'none\'\">X</span>            </div>      <div class=\"lggood\"><form name=login method=post action=\"/e/member/doaction.php\"> <input type=hidden name=enews value=login>    <input type=hidden name=ecmsfrom value=9>                    <ul id=\"loginBox\"><li>账号：<span class=\"mcInputBox\"><span><input name=\"username\" class=\"loginInput loginDefaultInput\"></span></span></li><li>密码：<span class=\"mcInputBox\"><span><input name=\"password\" class=\"loginInput\" type=\"password\"></span></span></li></ul>                   <input id=\"meta_button\" type=\"submit\" name=\"Submit\" value=\"登陆\" class=\"button\" />                    <span class=\"tiptxt\">没有帐号？<a href=\"http://www.haik8.com/e/member/register/index.php?groupid=1&button=%CF%C2%D2%BB%B2%BD/\">请注册</a></span>        </form>            </div>        </div>");
+<?
+}
+?>

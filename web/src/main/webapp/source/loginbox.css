@@ -1,0 +1,141 @@
+#lggoodBox{
+	margin:0 auto;
+	padding:0px;
+	text-align:left;
+	width:370px;
+	height:220px;
+	background:#FFF;
+	font-size:9pt;
+	border:1px solid #6E6E6E;
+	overflow:hidden;
+	filter:alpha(opacity=90);
+	opacity:1;
+	font:14px/1.75 Arial,sans-serif,宋体;
+}
+
+#lggoodBox .title{
+	text-align:left;
+	padding-left:10px;
+	font-size:11pt;
+	height:37px;
+	line-height:37px;
+	cursor:move;
+	background:#ED4040;
+}
+
+#lggoodBox .t1{
+	float:left;
+	font-weight:bold;
+	color:#FFF;
+	text-decoration:none;
+}
+
+#lggoodBox .t2{
+	float:right;
+	text-align:center;
+	line-height:17px;
+	height:17px;
+	width:17px;
+	margin-top:10px;
+	margin-right:5px;
+	overflow:hidden;
+	border:1px solid #fff;
+	background:#FFF;
+	cursor:pointer;
+	color:gray;
+}
+
+#lggoodBox .lggood{
+	background:white;
+	min-height:30px;
+	_height:30px;
+	overflow:auto;
+	_overflow:inherit word-wrap:break-word;
+	word-break:break-all;
+	padding:15px;
+}
+
+#bgDiv{
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:1231;
+	top:0px;
+	left:0px;
+	right:0px;
+	background-color:#777;
+	opacity:0.7;
+}
+
+#loginBox{
+	margin:0 auto;
+	list-style:none;
+}
+
+#loginBox li{
+	padding-top:1em;
+}
+
+.mcInputBox{
+	border-color:#949494 #CACACA #CACACA #949494;
+}
+
+.mcInputBox,.mcInputBox span,.mcInputBox input{
+	display:inline-block;
+	border-width:1px;
+	border-style:solid;
+	vertical-align:middle;
+}
+
+li{
+	text-align:-webkit-match-parent;
+}
+
+.mcInputBox,.mcInputBox span,.mcInputBox input{
+	display:inline-block;
+	border-width:1px;
+	border-style:solid;
+	vertical-align:middle;
+}
+
+.mcInputBox span{
+	border-color:#E6E6E6;
+	border-width:1px 0 0 1px;
+}
+
+.mcInputBox input{
+	border-color:#EFEFEF;
+	border-width:1px 0 0 1px;
+	margin:0;
+	padding:6px 5px;
+	outline:0;
+	line-height:1;
+	float:left;
+}
+
+.loginInput{
+	width:200px;
+}
+
+.button{
+	font-size:14px;
+	color:#3080C8;
+	font-weight:bold;
+	background:url(btn.gif) no-repeat;
+	width:106px;
+	height:28px;
+	float:left;
+	overflow:hidden;
+	line-height:28px;
+	text-align:center;
+	display:inline;
+	cursor:pointer;
+	border:none;
+	margin:20px 0 0 80px;
+}
+
+.tiptxt{
+	font-size:12px;
+	margin-left:20px;
+	line-height:65px;
+}
