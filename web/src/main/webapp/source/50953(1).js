@@ -1,1 +1,0 @@
-var weatherinfovar = {"weatherinfo":{"city":"\u54c8\u5c14\u6ee8","cityid":"101050101","temp":"25","SD":"35%","WD":"\u897f\u5357\u98ce","WS":"5\u7ea7","QY":"1000","JS":"\u964d\u6c34\u6982\u7387: 12%","pm25":"67","idx":"98","lv_hint":"\u826f","aqiLevel":2}};
