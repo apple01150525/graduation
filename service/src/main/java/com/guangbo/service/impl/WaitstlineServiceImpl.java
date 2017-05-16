@@ -1,11 +1,14 @@
 package com.guangbo.service.impl;
 
+import com.guangbo.dao.entity.TemperatureExample;
 import com.guangbo.dao.entity.Waistline;
+import com.guangbo.dao.entity.WaistlineExample;
 import com.guangbo.dao.mapper.WaistlineMapper;
 import com.guangbo.dao.po.PageInfoPO;
 import com.guangbo.service.IWaistlineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 
@@ -25,11 +28,20 @@ public class WaitstlineServiceImpl implements IWaistlineService {
     }
 
     public List<Waistline> query(Waistline record) {
-        return null;
+
+        WaistlineExample example = new WaistlineExample();
+        WaistlineExample.Criteria criteria = example.createCriteria();
+        return waistlineMapper.selectByExample(example);
     }
 
     public int update(Waistline record) {
-        return 0;
+
+        WaistlineExample example = new WaistlineExample();
+        WaistlineExample.Criteria criteria = example.createCriteria();
+        if (!ObjectUtils.isEmpty(record.getTime())) {
+            criteria.andTimeEqualTo(record.getTime());
+        }
+        return   waistlineMapper.updateByExampleSelective(record,example);
     }
 
     public PageInfoPO<Waistline> queryByPage(Waistline record, int startLimit, int endLimit) {

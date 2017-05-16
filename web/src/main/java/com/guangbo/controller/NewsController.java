@@ -59,23 +59,20 @@ public class NewsController {
         WebResult webResult = new WebResult();
         webResult.setCode("01");
         webResult.setMsg("失败");
-        if (ObjectUtils.isEmpty(bloodFat.getCholesterol())) {
-            return webResult;
+        String nowDate = DateUtil.formatToDay2(new Date());
+        bloodFat.setTime(nowDate);
+        int i = bloodFatService.update(bloodFat);
+        //如果更新成功，说明今天有记录，更新即可
+        if (i == 0) {
+            i = bloodFatService.insert(bloodFat);
+            if (i == 0) {
+                return webResult;
+            }
         }
-        if (ObjectUtils.isEmpty(bloodFat.getHighCholesterol())) {
-            return webResult;
-        }
-        if (ObjectUtils.isEmpty(bloodFat.getLowCholesterol())) {
-            return webResult;
-        }
-        if (ObjectUtils.isEmpty(bloodFat.getTriglyceride())) {
-            return webResult;
-        }
-        int i = bloodFatService.insert(bloodFat);
-        if (i == 1) {
-            webResult.setCode("00");
-            webResult.setMsg("成功");
-        }
+
+        webResult.setCode("00");
+        webResult.setMsg("成功");
+
         return webResult;
     }
 
@@ -88,11 +85,19 @@ public class NewsController {
         if (ObjectUtils.isEmpty(temperature.getTemper())) {
             return webResult;
         }
-        int i = temperatureService.insert(temperature);
-        if (i == 1) {
-            webResult.setCode("00");
-            webResult.setMsg("成功");
+        String nowDate = DateUtil.formatToDay2(new Date());
+        temperature.setTime(nowDate);
+        int i = temperatureService.update(temperature);
+        //如果更新成功，说明今天有记录，更新即可
+        if (i == 0) {
+            i = temperatureService.insert(temperature);
+            if (i == 0) {
+                return webResult;
+            }
         }
+
+        webResult.setCode("00");
+        webResult.setMsg("成功");
         return webResult;
     }
 
@@ -102,17 +107,19 @@ public class NewsController {
         WebResult webResult = new WebResult();
         webResult.setCode("01");
         webResult.setMsg("失败");
-        if (ObjectUtils.isEmpty(bloodGlucose.getGlucose())) {
-            return webResult;
+        String nowDate = DateUtil.formatToDay2(new Date());
+        bloodGlucose.setTime(nowDate);
+        int i = bloodGlucoseService.update(bloodGlucose);
+        //如果更新成功，说明今天有记录，更新即可
+        if (i == 0) {
+            i = bloodGlucoseService.insert(bloodGlucose);
+            if (i == 0) {
+                return webResult;
+            }
         }
-        if (ObjectUtils.isEmpty(bloodGlucose.getType())) {
-            return webResult;
-        }
-        int i = bloodGlucoseService.insert(bloodGlucose);
-        if (i == 1) {
-            webResult.setCode("00");
-            webResult.setMsg("成功");
-        }
+
+        webResult.setCode("00");
+        webResult.setMsg("成功");
         return webResult;
     }
 
@@ -131,6 +138,31 @@ public class NewsController {
             webResult.setResult(weights);
             return webResult;
         }
+        if(type.equals("bloodfat")) {
+            BloodFat bloodfat = new BloodFat();
+            List<BloodFat> bloodFats = bloodFatService.query(bloodfat);
+            webResult.setCode("00");
+            webResult.setMsg("成功");
+            webResult.setResult(bloodFats);
+            return webResult;
+        }
+        if(type.equals("temper")) {
+            Temperature temperature = new Temperature();
+            List<Temperature> temperatures = temperatureService.query(temperature);
+            webResult.setCode("00");
+            webResult.setMsg("成功");
+            webResult.setResult(temperatures);
+            return webResult;
+        }
+        if(type.equals("bloodglucose")) {
+            BloodGlucose bloodglucose = new BloodGlucose();
+            List<BloodGlucose> bloodGlucose = bloodGlucoseService.query(bloodglucose);
+            webResult.setCode("00");
+            webResult.setMsg("成功");
+            webResult.setResult(bloodGlucose);
+            return webResult;
+        }
+
         return webResult;
     }
 

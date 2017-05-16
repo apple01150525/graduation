@@ -1,11 +1,14 @@
 package com.guangbo.service.impl;
 
+import com.guangbo.dao.entity.BloodFatExample;
 import com.guangbo.dao.entity.BloodGlucose;
+import com.guangbo.dao.entity.BloodGlucoseExample;
 import com.guangbo.dao.mapper.BloodGlucoseMapper;
 import com.guangbo.dao.po.PageInfoPO;
 import com.guangbo.service.IBloodGlucoseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 
@@ -25,11 +28,21 @@ public class BloodGlucoseServiceImpl implements IBloodGlucoseService {
     }
 
     public List<BloodGlucose> query(BloodGlucose record) {
-        return null;
+
+        BloodGlucoseExample example = new BloodGlucoseExample();
+        BloodGlucoseExample.Criteria criteria = example.createCriteria();
+        return bloodGlucoseMapper.selectByExample(example);
     }
 
     public int update(BloodGlucose record) {
-        return 0;
+
+        BloodGlucoseExample example = new BloodGlucoseExample();
+        BloodGlucoseExample.Criteria criteria = example.createCriteria();
+        if (!ObjectUtils.isEmpty(record.getTime())) {
+            criteria.andTimeEqualTo(record.getTime());
+        }
+        return   bloodGlucoseMapper.updateByExampleSelective(record,example);
+
     }
 
     public PageInfoPO<BloodGlucose> queryByPage(BloodGlucose record, int startLimit, int endLimit) {
