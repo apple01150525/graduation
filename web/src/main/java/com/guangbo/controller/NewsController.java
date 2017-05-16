@@ -135,6 +135,11 @@ public class NewsController {
                 weightExts.add(ext);
 
             }
+            if(type.equals("bloodfat")) {
+                BloodFat bloodFat = new BloodFat();
+                bloodFatService.query(bloodFat);
+
+            }
             webResult.setCode("00");
             webResult.setMsg("成功");
             webResult.setResult(weightExts);

@@ -3,15 +3,27 @@ angular.module('myApp')
     function($http, $state, $scope, $rootScope,$document,$window)
     {
     	$rootScope.menuForA = true;
+    	$scope.time = [];
+    	$scope.w = new Array();
     	$http({
-    		url:"#",
-    		method:"POST",
+    		url:"/api/get/weight",
+    		method:"POST"
     	}).success(function(data){
-    		$scope.data = data.data;
+    		console.log(data);
+    		$scope.data = data.result;
+    		$.each(data.result,function(index){
+    			// console.log(this);
+                $scope.time.push(this.dayTime);
+				$scope.w.push(this.weight);
+			});
+            lineOption.xAxis.data = $scope.time;
+            lineOption.series.data = $scope.w;
+            var myCharts = echarts.init(document.getElementById("canvasA"));
+            myCharts.setOption(lineOption);
     	}).error(function(data){});
     	$scope.subA = function(){
     		$http({
-    		url:"#",
+    		url:"/api/add/weight",
     		method:"POST",
     		data:{
     			'type' : "weight",
@@ -19,7 +31,9 @@ angular.module('myApp')
     			'weight' : $scope.weight
     		}
     	}).success(function(data){
-    		console.log(data);
+    		if(data.code == 00){
+    			alert("记录成功");
+			}
     	}).error(function(data){});
     	}
     	var lineOption = {
@@ -30,28 +44,28 @@ angular.module('myApp')
 		        }
 		    },
 		    xAxis: {
-		        type: 'time',
+                name:"日期",
+		        type: 'category',
 		        splitLine: {
 		            show: false
 		        },
-		        data:[1,2,3,4,5,6]
+		        data:$scope.time
 		    },
 		    yAxis: {
+                name:"体重",
 		        type: 'value',
 		        boundaryGap: [0, '100%'],
 		        splitLine: {
 		            show: false
-		        },
-		        data:[1,2,3,4,5,6]
+		        }
 		    },
 		    series: [{
 	            name:'体重',
 	            type:'line',
-	            data:[11, 11, 15, 13, 12, 13, 10],
+	            data:$scope.w,
 	        },]
         }
-        var myCharts = echarts.init(document.getElementById("canvasA"));
-        myCharts.setOption(lineOption);
+
     	$scope.$on("$destroy", function() {
            $rootScope.menuForA = false;
         });
