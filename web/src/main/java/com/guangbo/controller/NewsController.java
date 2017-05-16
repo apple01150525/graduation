@@ -34,12 +34,11 @@ public class NewsController {
 
     @RequestMapping(value = "/add/weight", produces = "application/json;charset=UTF-8")
     @ResponseBody
-    public WebResult addWeight(WeightExt weight) {
+    public WebResult addWeight(Weight weight) {
         WebResult webResult = new WebResult();
         webResult.setCode("01");
         webResult.setMsg("失败");
         String nowDate = DateUtil.formatToDay2(new Date());
-        weight.setOldTime(nowDate);
         weight.setTime(nowDate);
         int i = weightService.update(weight);
         //如果更新成功，说明今天有记录，更新即可

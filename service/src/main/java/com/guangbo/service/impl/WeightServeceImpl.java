@@ -36,8 +36,12 @@ public class WeightServeceImpl implements IWeightService {
     }
 
     public int update(Weight record) {
-
-        return 0;
+        WeightExample example = new WeightExample();
+        WeightExample.Criteria criteria = example.createCriteria();
+        if (!ObjectUtils.isEmpty(record.getTime())) {
+            criteria.andTimeEqualTo(record.getTime());
+        }
+        return   weightMapper.updateByExampleSelective(record,example);
     }
 
     public int update(WeightExt record) {
