@@ -41,18 +41,16 @@ public class NewsController {
         String nowDate = DateUtil.formatToDay2(new Date());
         weight.setOldTime(nowDate);
         weight.setTime(nowDate);
-        int i= weightService.update(weight);
+        int i = weightService.update(weight);
         //如果更新成功，说明今天有记录，更新即可
         if (i == 0) {
-             i = weightService.insert(weight);
+            i = weightService.insert(weight);
             if (i == 0) {
                 return webResult;
             }
         }
-        if (i == 1) {
-            webResult.setCode("00");
-            webResult.setMsg("成功");
-        }
+        webResult.setCode("00");
+        webResult.setMsg("成功");
         return webResult;
     }
 
@@ -134,9 +132,6 @@ public class NewsController {
             webResult.setResult(weights);
             return webResult;
         }
-
-
-
         return webResult;
     }
 
