@@ -1,7 +1,6 @@
 package com.guangbo.dao.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class BloodFat implements Serializable {
     private Integer id;
@@ -14,7 +13,7 @@ public class BloodFat implements Serializable {
 
     private Integer lowCholesterol;
 
-    private Date time;
+    private String time;
 
     private static final long serialVersionUID = 1L;
 
@@ -58,11 +57,11 @@ public class BloodFat implements Serializable {
         this.lowCholesterol = lowCholesterol;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
-        this.time = time;
+    public void setTime(String time) {
+        this.time = time == null ? null : time.trim();
     }
 }

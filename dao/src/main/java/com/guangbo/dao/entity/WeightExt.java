@@ -1,26 +1,16 @@
 package com.guangbo.dao.entity;
 
-import com.guangbo.common.DateUtil;
-
-import java.util.Date;
-
 /**
- * Created by gaoguangbo on 2017/5/15.
+ * Created by gaoguangbo on 2017/5/16.
  */
-public class WeightExt extends Weight{
-    private String dayTime;
+public class WeightExt extends Weight {
+    private String oldTime ;
 
-    @Override
-    public void setTime(Date time) {
-        super.setTime(time);
-        dayTime = DateUtil.formatToDay(super.getTime());
+    public String getOldTime() {
+        return oldTime;
     }
 
-    public String getDayTime() {
-        return dayTime;
-    }
-
-    public void setDayTime(String dayTime) {
-        this.dayTime = dayTime;
+    public void setOldTime(String oldTime) {
+        this.oldTime = oldTime;
     }
 }

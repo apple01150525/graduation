@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -37,17 +38,18 @@ public class NewsController {
         WebResult webResult = new WebResult();
         webResult.setCode("01");
         webResult.setMsg("失败");
-        if (ObjectUtils.isEmpty(weight.getHeight())) {
-            return webResult;
+        String nowDate = DateUtil.formatToDay2(new Date());
+        weight.setTime(nowDate);
+        int i = weightService.update(weight);
+        //如果更新成功，说明今天有记录，更新即可
+        if (i == 0) {
+            i = weightService.insert(weight);
+            if (i == 0) {
+                return webResult;
+            }
         }
-        if (ObjectUtils.isEmpty(weight.getWeight())) {
-            return webResult;
-        }
-        int i = weightService.insert(weight);
-        if (i == 1) {
-            webResult.setCode("00");
-            webResult.setMsg("成功");
-        }
+        webResult.setCode("00");
+        webResult.setMsg("成功");
         return webResult;
     }
 
@@ -124,30 +126,11 @@ public class NewsController {
         if (type.equals("weight")) {
             Weight weight = new Weight();
             List<Weight> weights = weightService.query(weight);
-            List<WeightExt> weightExts = new LinkedList<WeightExt>();
-            for (Weight we : weights) {
-                WeightExt ext = new WeightExt();
-                ext.setDayTime(DateUtil.formatToDay(we.getTime()));
-                ext.setTime(we.getTime());
-                ext.setHeight(we.getHeight());
-                ext.setWeight(we.getWeight());
-                ext.setId(we.getId());
-                weightExts.add(ext);
-
-            }
-            if(type.equals("bloodfat")) {
-                BloodFat bloodFat = new BloodFat();
-                bloodFatService.query(bloodFat);
-
-            }
             webResult.setCode("00");
             webResult.setMsg("成功");
-            webResult.setResult(weightExts);
+            webResult.setResult(weights);
             return webResult;
         }
-
-
-
         return webResult;
     }
 

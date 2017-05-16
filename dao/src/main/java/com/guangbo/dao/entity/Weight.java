@@ -1,9 +1,6 @@
 package com.guangbo.dao.entity;
 
-import com.guangbo.common.DateUtil;
-
 import java.io.Serializable;
-import java.util.Date;
 
 public class Weight implements Serializable {
     private Integer id;
@@ -12,7 +9,7 @@ public class Weight implements Serializable {
 
     private Float height;
 
-    private Date time;
+    private String time;
 
     private static final long serialVersionUID = 1L;
 
@@ -40,11 +37,11 @@ public class Weight implements Serializable {
         this.height = height;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
-        this.time = time;
+    public void setTime(String time) {
+        this.time = time == null ? null : time.trim();
     }
 }

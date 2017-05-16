@@ -313,5 +313,9 @@ public class DateUtil {
     public static void main(String[] args) {
 
         System.out.println("da="+getYesterday());
+
+        String s = formatToDay2(new Date());
+        System.out.println(s);
+
     }
 }

@@ -7,7 +7,7 @@
     <result column="triglyceride" property="triglyceride" jdbcType="INTEGER" />
     <result column="high_cholesterol" property="highCholesterol" jdbcType="INTEGER" />
     <result column="low_cholesterol" property="lowCholesterol" jdbcType="INTEGER" />
-    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -105,7 +105,7 @@
       high_cholesterol, low_cholesterol, time
       )
     values (#{id,jdbcType=INTEGER}, #{cholesterol,jdbcType=INTEGER}, #{triglyceride,jdbcType=INTEGER}, 
-      #{highCholesterol,jdbcType=INTEGER}, #{lowCholesterol,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}
+      #{highCholesterol,jdbcType=INTEGER}, #{lowCholesterol,jdbcType=INTEGER}, #{time,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.guangbo.dao.entity.BloodFat" >
@@ -147,7 +147,7 @@
         #{lowCholesterol,jdbcType=INTEGER},
       </if>
       <if test="time != null" >
-        #{time,jdbcType=TIMESTAMP},
+        #{time,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -176,7 +176,7 @@
         low_cholesterol = #{record.lowCholesterol,jdbcType=INTEGER},
       </if>
       <if test="record.time != null" >
-        time = #{record.time,jdbcType=TIMESTAMP},
+        time = #{record.time,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -190,7 +190,7 @@
       triglyceride = #{record.triglyceride,jdbcType=INTEGER},
       high_cholesterol = #{record.highCholesterol,jdbcType=INTEGER},
       low_cholesterol = #{record.lowCholesterol,jdbcType=INTEGER},
-      time = #{record.time,jdbcType=TIMESTAMP}
+      time = #{record.time,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -211,7 +211,7 @@
         low_cholesterol = #{lowCholesterol,jdbcType=INTEGER},
       </if>
       <if test="time != null" >
-        time = #{time,jdbcType=TIMESTAMP},
+        time = #{time,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -222,7 +222,7 @@
       triglyceride = #{triglyceride,jdbcType=INTEGER},
       high_cholesterol = #{highCholesterol,jdbcType=INTEGER},
       low_cholesterol = #{lowCholesterol,jdbcType=INTEGER},
-      time = #{time,jdbcType=TIMESTAMP}
+      time = #{time,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

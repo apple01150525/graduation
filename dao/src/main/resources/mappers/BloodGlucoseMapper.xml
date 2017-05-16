@@ -5,7 +5,7 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="glucose" property="glucose" jdbcType="INTEGER" />
     <result column="type" property="type" jdbcType="TINYINT" />
-    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -102,7 +102,7 @@
     insert into blood_glucose (id, glucose, type, 
       time)
     values (#{id,jdbcType=INTEGER}, #{glucose,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, 
-      #{time,jdbcType=TIMESTAMP})
+      #{time,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.guangbo.dao.entity.BloodGlucose" >
     insert into blood_glucose
@@ -131,7 +131,7 @@
         #{type,jdbcType=TINYINT},
       </if>
       <if test="time != null" >
-        #{time,jdbcType=TIMESTAMP},
+        #{time,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -154,7 +154,7 @@
         type = #{record.type,jdbcType=TINYINT},
       </if>
       <if test="record.time != null" >
-        time = #{record.time,jdbcType=TIMESTAMP},
+        time = #{record.time,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -166,7 +166,7 @@
     set id = #{record.id,jdbcType=INTEGER},
       glucose = #{record.glucose,jdbcType=INTEGER},
       type = #{record.type,jdbcType=TINYINT},
-      time = #{record.time,jdbcType=TIMESTAMP}
+      time = #{record.time,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -181,7 +181,7 @@
         type = #{type,jdbcType=TINYINT},
       </if>
       <if test="time != null" >
-        time = #{time,jdbcType=TIMESTAMP},
+        time = #{time,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -190,7 +190,7 @@
     update blood_glucose
     set glucose = #{glucose,jdbcType=INTEGER},
       type = #{type,jdbcType=TINYINT},
-      time = #{time,jdbcType=TIMESTAMP}
+      time = #{time,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

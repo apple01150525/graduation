@@ -1,14 +1,13 @@
 package com.guangbo.dao.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Waistline implements Serializable {
     private Integer id;
 
     private Integer waistline;
 
-    private Date time;
+    private String time;
 
     private static final long serialVersionUID = 1L;
 
@@ -28,11 +27,11 @@ public class Waistline implements Serializable {
         this.waistline = waistline;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
-        this.time = time;
+    public void setTime(String time) {
+        this.time = time == null ? null : time.trim();
     }
 }
