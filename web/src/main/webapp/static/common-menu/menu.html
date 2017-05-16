@@ -11,13 +11,16 @@
                 <div id="nav-menu" class="navbar-collapse collapse" role="navigation">
                     <ul class="nav navbar-nav blete-menu-wrapper">
                         <li class="active">
-                            <a href="#/index">Home</a>
+                            <a ui-sref = "index">Home</a>
                         </li>
                         <li>
-                            <a href="#">保健养生</a>
+                            <a ui-sref="healthyNews">保健养生</a>
                         </li>
                         <li>
-                            <a href="#/review/review/A">健康监测</a>
+                            <a ui-sref="review">健康监测</a>
+                        </li>
+                        <li ng-class ="{active:menuForQuestion}" >
+                            <a ui-sref = "question">健康问卷</a>
                         </li>
                         <li>
                             <a href="#">医学前沿</a>

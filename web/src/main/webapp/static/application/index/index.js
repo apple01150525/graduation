@@ -117,7 +117,7 @@ angular.module('myApp')
             $(".rollVisable ul.rollArea li").css("width",Math.floor(rollWidth/3)); 
             function rollSlide(){
                 var _left = parseInt($(".rollVisable ul.rollArea").css("left"));
-                if(_left == 0){ 
+                if(_left == 0){
                     $(".rollVisable ul.rollArea").css("left",-rollWidth/3);
                     $(".rollVisable .tag li").eq(1).addClass("current");
                     $(".rollVisable .tag li").eq(0).removeClass("current");
@@ -127,7 +127,7 @@ angular.module('myApp')
                     $(".rollVisable .tag li").eq(0).addClass("current");
                 }
             }
-            var roolTimer = setInterval(rollSlide,4000);     
+            var roolTimer = setInterval(rollSlide,4000);
             //环形图
             var option1 = {
                 series: [
@@ -153,7 +153,7 @@ angular.module('myApp')
                         }
                     },
                     data:[
-                    {value:95,name:"html\n95%",itemStyle:{normal:{color:"#90CAF9"}}},
+                    {value:95,name:"血压增幅\n95%",itemStyle:{normal:{color:"#90CAF9"}}},
                     {value:5,itemStyle:{normal:{color:"#ddd"}}},
 
                     ]
@@ -184,7 +184,7 @@ angular.module('myApp')
                         }
                     },
                     data:[
-                    {value:90,name:"css\n90%",itemStyle:{normal:{color:"#90CAF9"}}},
+                    {value:90,name:"体重增幅\n90%",itemStyle:{normal:{color:"#90CAF9"}}},
                     {value:10,itemStyle:{normal:{color:"#ddd"}}},
 
                     ]
@@ -215,7 +215,7 @@ angular.module('myApp')
                         }
                     },
                     data:[
-                    {value:90,name:"JavaScript\n90%",itemStyle:{normal:{color:"#90CAF9"}}},
+                    {value:90,name:"血脂增幅\n90%",itemStyle:{normal:{color:"#90CAF9"}}},
                     {value:10,itemStyle:{normal:{color:"#ddd"}}},
 
                     ]
@@ -246,7 +246,7 @@ angular.module('myApp')
                         }
                     },
                     data:[
-                    {value:80,name:"php\n80%",itemStyle:{normal:{color:"#90CAF9"}}},
+                    {value:80,name:"运动时间\n80%",itemStyle:{normal:{color:"#90CAF9"}}},
                     {value:20,itemStyle:{normal:{color:"#ddd"}}},
 
                     ]
@@ -254,7 +254,6 @@ angular.module('myApp')
                 ]
             };
             var option = [option1,option2,option3,option4];
-            
             //方形滚动图片
             var diamonds = $(".diamonds .container").width();
             $(".pic_visable").css("width",diamonds);

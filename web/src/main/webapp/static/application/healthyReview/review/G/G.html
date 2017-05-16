@@ -1,0 +1,48 @@
+<div class="col-md-2 t-r m-t-md">
+	<label for="">
+		总胆固醇:
+	</label>
+</div>
+<div class="col-md-8 m-b-md m-t-md">
+	<input type="range" name="" min="1" max="300" class = "form-contorl col-xs-10" ng-model = "cholesterol" ng-init = "cholesterol = 0">{{cholesterol}}ml/dl
+</div>
+<div class="col-md-2 m-b-md m-t-md">
+	<button class="btn btn-sm btn-info" ng-click= "subA();">记录</button>
+</div>
+<div class="clearfix"></div>
+<div class="col-md-2 t-r m-t-md">
+	<label for="">
+		甘油三酯:
+	</label>
+</div>
+<div class="col-md-8 m-b-md m-t-md">
+	<input type="range" name="" min="1" max="200" class = "form-contorl col-xs-10" ng-model = "triglyceride" ng-init = "triglyceride = 0">{{triglyceride}}ml/dl
+</div>
+<div class="col-md-2 m-b-md m-t-md">
+	<button class="btn btn-sm btn-info" ng-click= "subA();">记录</button>
+</div>
+<div class="clearfix"></div>
+<div class="col-md-2 t-r m-t-md">
+	<label for="">
+		低密度蛋白:
+	</label>
+</div>
+<div class="col-md-8 m-b-md m-t-md">
+	<input type="range" name="" min="1" max="100" class = "form-contorl col-xs-10" ng-model = "high_cholesterol" ng-init = "high_cholesterol = 0">{{high_cholesterol}}ml/dl
+</div>
+<div class="col-md-2 m-b-md m-t-md">
+	<button class="btn btn-sm btn-info" ng-click= "subA();">记录</button>
+</div>
+<div class="clearfix"></div>
+<div class="col-md-2 t-r m-t-md">
+	<label for="">
+		高密度蛋白:
+	</label>
+</div>
+<div class="col-md-8 m-b-md m-t-md">
+	<input type="range" name="" min="1" max="200" class = "form-contorl col-xs-10" ng-model = "low_cholesterol" ng-init = "low_cholesterol = 0">{{low_cholesterol}}ml/dl
+</div>
+<div class="col-md-2 m-b-md m-t-md">
+	<button class="btn btn-sm btn-info" ng-click= "subA();">记录</button>
+</div>
+<canvas id = "canvasG" width = "1050px" height = "300px"></canvas>

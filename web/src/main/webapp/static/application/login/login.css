@@ -1,0 +1,138 @@
+body{
+  overflow: hidden;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes chill {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+#bgCanvas p {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  color: white;
+  opacity: 0;
+  font-family: "Source Sans Pro";
+  animation: fadeIn 2s ease-out, chill 2s 2s, fadeOut 2s 4s;
+}
+
+#bgCanvas .social:hover a {
+  transform: rotate(-45deg) scale(1.05);
+}
+#bgCanvas .social:hover i {
+  color: #21c2ff;
+}
+
+#bgCanvas a {
+  position: absolute;
+  bottom: -40px;
+  right: -75px;
+  background: white;
+  color: white;
+  box-shadow: -1px -1px 20px 0px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  width: 150px;
+  height: 80px;
+  transform-origin: 50% 50%;
+  transform: rotate(-45deg);
+  transition: .15s ease-out;
+}
+
+#bgCanvas i {
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+  pointer-events: none;
+  color: #00ACED;
+  z-index: 1000;
+  font-size: 100px;
+  transition: .15s ease-out;
+}
+.login{
+	width:350px;
+	height:500px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-175px;
+	margin-top:-250px;
+	text-align: center;
+	background: transparent;
+}
+.login h1{
+	color:#ddd;
+}
+.login h4{
+  margin-top:20px;
+  color:#A0A0A0;
+}
+.login a{
+  text-decoration: none;
+  color:#eee;
+  display: inline-block;
+  float: right;
+}
+.option span{
+  display: inline-block;
+  float: left;
+  color:#eee;
+}
+.option span .i-checks{
+  padding-left: 0;
+  margin-left: 8px;
+}
+.input_area{
+	position:relative;
+	height:60px;
+	margin-top:30px;
+}
+.input_area .input{
+	position:absolute;
+	width:100%;
+	bottom:0;
+	left:0;
+	border:0;
+	height:40px;
+	color:#ddd;
+	padding-left:72px;
+	border-bottom: 1px solid #90caf9;
+	background-color: transparent;
+	outline:none;
+}
+.input_area .input:focus{
+	color:#ddd;
+}
+.input_area h3{
+	position:absolute;
+	bottom:0;
+	left:0;
+	color:#ddd;
+	font-size: 16px;
+}
+.input_sub{
+	width:100%;
+	margin-top:30px;
+	background-color:#90caf9;
+	color:#fff; 
+	border:0;
+	height:40px;
+}

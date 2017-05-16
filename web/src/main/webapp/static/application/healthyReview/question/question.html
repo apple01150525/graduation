@@ -3,13 +3,26 @@
 	<div class="panel-center">
 		<h3 class="b-b-body p-b-sm m-b-lg">
 			<span class = "b-b-h3-span">健康问卷</span>
-			<button class="btn btn-info f-r" ui-sref="subscriptionApply">提交</button>
+			<button class="btn btn-info f-r" ui-sref="index" ng-click = "submit();">提交</button>
 		</h3>
 		<smart-table id = "questionList">
-			<ul>
+			<ul class = "q_list">
 				<li ng-repeat = "data in questionList.chooseQuestions">
-					<div class="c_question">{{data.questionInfo}}</div>
-					<div class="c_choose">{{data.answerA}}</div>
+					<div class="c_question m-b-xs">{{$index+1}}.&nbsp;&nbsp;&nbsp;{{data.questionInfo}}</div>
+					<div class="c_choose m-b-xs">
+						<label class="i-checks">
+							<input style="height: auto;width:auto;" type="radio" class = "checkbox-inline" name="{{data.id}}"/><i></i>
+						</label>{{data.answerA}}&nbsp;&nbsp;&nbsp;
+						<label class="i-checks">
+								<input style="height: auto;width:auto;" type="radio" class = "checkbox-inline" name="{{data.id}}"/><i></i>
+						</label>{{data.answerB}}&nbsp;&nbsp;&nbsp;
+						<label class="i-checks">
+								<input style="height: auto;width:auto;" type="radio" class = "checkbox-inline" name="{{data.id}}"/><i></i>
+						</label>{{data.answerC}}&nbsp;&nbsp;&nbsp;
+						<label class="i-checks">
+								<input style="height: auto;width:auto;" type="radio" class = "checkbox-inline" name="{{data.id}}"/><i></i>
+						</label>{{data.answerD}}
+					</div>
 				</li>
 			</ul>
 		</smart-table>

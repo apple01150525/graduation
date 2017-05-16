@@ -27,7 +27,9 @@ angular.module('myApp')
 				},
 				'asyn': true,
 		};
-		console.log($scope.questionList);
+		$scope.submit = function(){
+			alert("提交成功");
+		}
 		$scope.$on("$destroy", function() {
            $rootScope.menuForQuestion = false;
         });

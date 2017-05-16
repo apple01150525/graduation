@@ -4,7 +4,7 @@ angular.module('myApp')
     {
     	$rootScope.menuForA = true;
     	$scope.time = [];
-    	$scope.w = new Array();
+    	$scope.w = [];
     	$http({
     		url:"/api/get/weight",
     		method:"POST"
@@ -13,7 +13,7 @@ angular.module('myApp')
     		$scope.data = data.result;
     		$.each(data.result,function(index){
     			// console.log(this);
-                $scope.time.push(this.dayTime);
+                $scope.time.push(this.time);
 				$scope.w.push(this.weight);
 			});
             lineOption.xAxis.data = $scope.time;
@@ -27,12 +27,12 @@ angular.module('myApp')
     		method:"POST",
     		data:{
     			'type' : "weight",
-    			'sub' : 0,
     			'weight' : $scope.weight
     		}
     	}).success(function(data){
     		if(data.code == 00){
     			alert("记录成功");
+                window.location.reload();
 			}
     	}).error(function(data){});
     	}

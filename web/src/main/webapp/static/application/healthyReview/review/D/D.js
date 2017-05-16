@@ -10,6 +10,7 @@ angular.module('myApp')
     		$scope.data = data.data;
     	}).error(function(data){});
     	$scope.subA = function(){
+            alert("记录成功");
     		$http({
     		url:"#",
     		method:"POST",
@@ -35,11 +36,11 @@ angular.module('myApp')
 		        splitLine: {
 		            show: false
 		        },
-		        data:[1,2,3,4,5,6]
+		        data:["2017-05-12","2017-05-13","2017-05-14","2017-05-15","2017-05-16"]
 		    },
 		    yAxis: {
 		        type: 'value',
-		        name:"体重",
+		        name:"腰围",
 		        splitLine: {
 		            show: false
 		        }
@@ -47,7 +48,7 @@ angular.module('myApp')
 		    series: [{
 	            name:'体重',
 	            type:'line',
-	            data:[11, 11, 15, 13, 12, 13]
+	            data:["78", "76", "77", "76", "77"]
 	        }]
         }
         var myCharts = echarts.init(document.getElementById("canvasD"));

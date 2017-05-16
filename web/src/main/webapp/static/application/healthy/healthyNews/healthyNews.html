@@ -1,0 +1,14 @@
+<ng-include src = "'./../../static/template/header/header.html'"></ng-include>
+<div id="content" class="no-menu">
+	<div class="panel-center">
+		<h3 class="b-b-body p-b-sm m-b-lg">
+			<span class = "b-b-h3-span">保健养生</span>
+		</h3>
+		<ul class ="p-l-lg p-r-lg">
+			<li class = "b-b-body p-b-sm p-t-sm" ng-repeat = "data in healthyNews">
+				<h2 class= "b-b-h3-span m-b-lg"> {{$index+1}} . {{data.title}}</h2>
+				<p class = "p-l-lg">{{data.content}}</p>
+			</li>
+		</ul>
+	</div>
+</div>

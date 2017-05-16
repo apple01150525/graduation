@@ -40,7 +40,7 @@ ul.review_btn > li .icone{
 	background-position: -200px 0px;
 }
 ul.review_btn > li .iconf{
-	background-position: -250px 0px;
+	background-position: -500px 0px;
 }
 ul.review_btn > li .icong{
 	background-position: -300px 0px;
@@ -70,7 +70,7 @@ ul.review_btn > li a:hover .icone,ul.review_btn > li a.active .icone{
 	background-position: -200px -50px;
 }
 ul.review_btn > li a:hover .iconf,ul.review_btn > li a.active .iconf{
-	background-position: -250px -50px;
+	background-position: -500px -50px;
 }
 ul.review_btn > li a:hover .icong,ul.review_btn > li a.active .icong{
 	background-position: -300px -50px;

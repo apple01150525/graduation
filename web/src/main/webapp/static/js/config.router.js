@@ -126,6 +126,21 @@ angular.module('myApp')
                             ]
                         }
                     })
+                    .state('review.G', {
+                        url: "/review/G",
+                        templateUrl: "../../static/application/healthyReview/review/G/G.html?t=" + Math.floor(Date.now() / 1000),
+                        controller: "reviewGController",
+                        controllerAs: "reviewGCtrl",
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load([
+                                        '../../static/application/healthyReview/review/G/G.js?_4223'
+                                    ]);
+                                }
+                            ]
+                        }
+                    })
                     .state('record', {
                         url: "/record",
                         templateUrl: "../../static/application/healthyReview/record/record.html?t=" + Math.floor(Date.now() / 1000),
@@ -152,7 +167,40 @@ angular.module('myApp')
                                 function($ocLazyLoad) {
                                     return $ocLazyLoad.load([
                                         '../../static/application/healthyReview/question/question.js?_34223',
+                                        '../../static/application/healthyReview/question/question.css?_3523',
                                         '../../static/template/smartTable/smartTable.js?_34223',
+                                    ]);
+                                }
+                            ]
+                        }
+                    })
+                    .state('healthyNews', {
+                        url: "/healthyNews",
+                        templateUrl: "../../static/application/healthy/healthyNews/healthyNews.html?t=" + Math.floor(Date.now() / 1000),
+                        controller: "questionNewsController",
+                        controllerAs: "questionNewsCtrl",
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load([
+                                        '../../static/application/healthy/healthyNews/healthyNews.js?_34223',
+                                        '../../static/application/healthy/healthyNews/healthyNews.css?_34223'
+                                    ]);
+                                }
+                            ]
+                        }
+                    })
+                    .state('login', {
+                        url: "/login",
+                        templateUrl: "../../static/application/login/login.html?t=" + Math.floor(Date.now() / 1000),
+                        controller: "loginController",
+                        controllerAs: "loginCtrl",
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load([
+                                        '../../static/application/login/login.js?_3423',
+                                        '../../static/application/login/login.css?_4223'
                                     ]);
                                 }
                             ]

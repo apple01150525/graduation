@@ -1,0 +1,15 @@
+<canvas id = "bgCanvas"></canvas>
+<div class = "login">
+	<h1>健康管理平台</h1>
+	<form>
+		<div class="input_area">
+			<h3 class="info">用户名：</h3>
+			<input type="text" class = "input" ng-model = "username"  autofocus="autofocus">
+		</div>
+		<div class="input_area">
+			<h3 class="info">密码：</h3>
+			<input type="password" class = "input" ng-model = "password">
+		</div>
+		<input type="button" value = "登录" class = "input_sub" id = "input_sub" ng-click = "login()" ng-keyup = "enterLogin($event)">
+	</form>
+</div>

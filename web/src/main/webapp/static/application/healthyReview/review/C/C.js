@@ -4,22 +4,31 @@ angular.module('myApp')
     {
     	$rootScope.menuForC = true;
     	$http({
-    		url:"#",
+    		url:"/api/get/bloodglucose",
     		method:"POST",
     	}).success(function(data){
     		$scope.data = data.data;
+            $.each(data.result,function(index){
+                lineOption.xAxis.data.push(this.time);
+                lineOption.series[0].data.push(this.glucose);
+            });
+        var myCharts = echarts.init(document.getElementById("canvasC"));
+        myCharts.setOption(lineOption);
+            console.log(data.result);
     	}).error(function(data){});
     	$scope.subA = function(){
     		$http({
-    		url:"#",
+    		url:"/api/add/bloodglucose",
     		method:"POST",
     		data:{
-    			'type' : "weight",
+    			'type' : "bloodglucose",
     			'sub' : 0,
-    			'weight' : $scope.weight
+    			'glucose' : $scope.glucose
     		}
     	}).success(function(data){
-    		console.log(data);
+    		if(data.code == 00){
+                alert("记录成功");
+            }
     	}).error(function(data){});
     	}
     	var lineOption = {
@@ -35,23 +44,21 @@ angular.module('myApp')
 		        splitLine: {
 		            show: false
 		        },
-		        data:[1,2,3,4,5,6]
+		        data:[]
 		    },
 		    yAxis: {
 		        type: 'value',
-		        name:"体重",
+		        name:"血糖",
 		        splitLine: {
 		            show: false
 		        }
 		    },
 		    series: [{
-	            name:'体重',
+	            name:'血糖',
 	            type:'line',
-	            data:[11, 11, 15, 13, 12, 13]
+	            data:[]
 	        }]
         }
-        var myCharts = echarts.init(document.getElementById("canvasC"));
-        myCharts.setOption(lineOption);
     	$scope.$on("$destroy", function() {
            $rootScope.menuForC = false;
         });

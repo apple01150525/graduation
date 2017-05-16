@@ -12,7 +12,14 @@ angular.module('myApp')
     		url:"/api/get/bloodfat",
     		method:"POST",
     	}).success(function(data){
-    	    console.log(data);
+    	    $scope.b = data.result;
+            $.each(data.result,function(index){
+                lineOption.xAxis.data.push(this.time);
+                lineOption.series[0].data.push(this.highCholesterol);
+                lineOption.series[1].data.push(this.lowCholesterol);
+            });
+            var myCharts = echarts.init(document.getElementById("canvasB_1"));
+            myCharts.setOption(lineOption);
         }).error(function(data){});
     	$scope.$on("$destroy", function() {
            $rootScope.menuForB = false;
@@ -32,11 +39,11 @@ angular.module('myApp')
                 splitLine: {
                     show: false
                 },
-                data:[1,2,3,4,5,6]
+                data:[]
             },
             yAxis: {
                 type: 'value',
-                name:"体重",
+                name:"血压",
                 splitLine: {
                     show: false
                 }
@@ -44,16 +51,14 @@ angular.module('myApp')
             series: [{
                 name:'舒张压',
                 type:'line',
-                data:[11, 11, 15, 13, 12, 13]
+                data:[]
             },
             {
                 name:'收缩压',
                 type:'line',
-                data:[20, 21, 25, 23, 22, 23]
+                data:[]
             }]
         };
-        var myCharts = echarts.init(document.getElementById("canvasB_1"));
-        myCharts.setOption(lineOption);
         var myCharts_2 = echarts.init(document.getElementById("canvasB_2"));
         myCharts_2.setOption(lineOption);
         $scope.$on("$destroy", function() {
