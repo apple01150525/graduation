@@ -33,7 +33,7 @@ public class PaperController {
     private IUserAnswerService userAnswerService;
 
     @ResponseBody
-    @RequestMapping("/getQuestions")
+    @RequestMapping(value = "/getQuestions" , produces = "application/json;charset=UTF-8")
     public String getNews(HttpServletRequest request) {
         List<ChooseQuestion> chooseQuestions = paperService.query(new ChooseQuestion());
         CQ cq = new CQ();
@@ -43,7 +43,7 @@ public class PaperController {
         return json;
     }
 
-    @RequestMapping("/saveAnswer")
+    @RequestMapping(value = "/saveAnswer" , produces = "application/json;charset=UTF-8")
     public String getNews(HttpServletRequest request, Model model,String data) {
         //int userId = Integer.valueOf(request.getSession().getAttribute("user").getId());
         int userId = 1;

@@ -7,9 +7,9 @@
 		</h3>
 		<smart-table id = "questionList">
 			<ul>
-				<li ng-repeat = "data in questionList.data">
-					<div class="c_question">1111111111111</div>
-					<div class="c_choose">22222</div>
+				<li ng-repeat = "data in questionList.chooseQuestions">
+					<div class="c_question">{{data.questionInfo}}</div>
+					<div class="c_choose">{{data.answerA}}</div>
 				</li>
 			</ul>
 		</smart-table>

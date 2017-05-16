@@ -60,8 +60,7 @@
 		<!--<table tableName="temperature" domainObjectName="Temperature"/>-->
 		<!--<table tableName="choose_question" domainObjectName="ChooseQuestion"/>-->
 		<!--<table tableName="user_answer" domainObjectName="UserAnswer"/>-->
-		<!--<table tableName="article" domainObjectName="Article"/>-->
-
+		<table tableName="news" domainObjectName="News"/>
 	</context>
 
 </generatorConfiguration> 
