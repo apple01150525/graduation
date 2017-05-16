@@ -4,10 +4,11 @@ angular.module('myApp')
     {
     	$rootScope.menuForA = true;
     	$http({
-    		url:"#",
+    		url:"/api/get/weight",
     		method:"POST",
     	}).success(function(data){
     		$scope.data = data.data;
+    		console.log(dada);
     	}).error(function(data){});
     	$scope.subA = function(){
     		$http({
