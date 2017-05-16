@@ -1,7 +1,6 @@
 package com.guangbo.dao.entity;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class WaistlineExample {
@@ -235,52 +234,62 @@ public class WaistlineExample {
             return (Criteria) this;
         }
 
-        public Criteria andTimeEqualTo(Date value) {
+        public Criteria andTimeEqualTo(String value) {
             addCriterion("time =", value, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTimeNotEqualTo(Date value) {
+        public Criteria andTimeNotEqualTo(String value) {
             addCriterion("time <>", value, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTimeGreaterThan(Date value) {
+        public Criteria andTimeGreaterThan(String value) {
             addCriterion("time >", value, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTimeGreaterThanOrEqualTo(Date value) {
+        public Criteria andTimeGreaterThanOrEqualTo(String value) {
             addCriterion("time >=", value, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTimeLessThan(Date value) {
+        public Criteria andTimeLessThan(String value) {
             addCriterion("time <", value, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTimeLessThanOrEqualTo(Date value) {
+        public Criteria andTimeLessThanOrEqualTo(String value) {
             addCriterion("time <=", value, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTimeIn(List<Date> values) {
+        public Criteria andTimeLike(String value) {
+            addCriterion("time like", value, "time");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeNotLike(String value) {
+            addCriterion("time not like", value, "time");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeIn(List<String> values) {
             addCriterion("time in", values, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTimeNotIn(List<Date> values) {
+        public Criteria andTimeNotIn(List<String> values) {
             addCriterion("time not in", values, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTimeBetween(Date value1, Date value2) {
+        public Criteria andTimeBetween(String value1, String value2) {
             addCriterion("time between", value1, value2, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTimeNotBetween(Date value1, Date value2) {
+        public Criteria andTimeNotBetween(String value1, String value2) {
             addCriterion("time not between", value1, value2, "time");
             return (Criteria) this;
         }

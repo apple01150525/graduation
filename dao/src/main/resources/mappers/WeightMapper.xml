@@ -5,7 +5,7 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="weight" property="weight" jdbcType="REAL" />
     <result column="height" property="height" jdbcType="REAL" />
-    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -102,7 +102,7 @@
     insert into weight (id, weight, height, 
       time)
     values (#{id,jdbcType=INTEGER}, #{weight,jdbcType=REAL}, #{height,jdbcType=REAL}, 
-      #{time,jdbcType=TIMESTAMP})
+      #{time,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.guangbo.dao.entity.Weight" >
     insert into weight
@@ -131,7 +131,7 @@
         #{height,jdbcType=REAL},
       </if>
       <if test="time != null" >
-        #{time,jdbcType=TIMESTAMP},
+        #{time,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -154,7 +154,7 @@
         height = #{record.height,jdbcType=REAL},
       </if>
       <if test="record.time != null" >
-        time = #{record.time,jdbcType=TIMESTAMP},
+        time = #{record.time,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -166,7 +166,7 @@
     set id = #{record.id,jdbcType=INTEGER},
       weight = #{record.weight,jdbcType=REAL},
       height = #{record.height,jdbcType=REAL},
-      time = #{record.time,jdbcType=TIMESTAMP}
+      time = #{record.time,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -181,7 +181,7 @@
         height = #{height,jdbcType=REAL},
       </if>
       <if test="time != null" >
-        time = #{time,jdbcType=TIMESTAMP},
+        time = #{time,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -190,7 +190,7 @@
     update weight
     set weight = #{weight,jdbcType=REAL},
       height = #{height,jdbcType=REAL},
-      time = #{time,jdbcType=TIMESTAMP}
+      time = #{time,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

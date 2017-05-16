@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.guangbo.dao.entity.Temperature" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="temper" property="temper" jdbcType="INTEGER" />
-    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -100,7 +100,7 @@
   <insert id="insert" parameterType="com.guangbo.dao.entity.Temperature" >
     insert into temperature (id, temper, time
       )
-    values (#{id,jdbcType=INTEGER}, #{temper,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}
+    values (#{id,jdbcType=INTEGER}, #{temper,jdbcType=INTEGER}, #{time,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.guangbo.dao.entity.Temperature" >
@@ -124,7 +124,7 @@
         #{temper,jdbcType=INTEGER},
       </if>
       <if test="time != null" >
-        #{time,jdbcType=TIMESTAMP},
+        #{time,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -144,7 +144,7 @@
         temper = #{record.temper,jdbcType=INTEGER},
       </if>
       <if test="record.time != null" >
-        time = #{record.time,jdbcType=TIMESTAMP},
+        time = #{record.time,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -155,7 +155,7 @@
     update temperature
     set id = #{record.id,jdbcType=INTEGER},
       temper = #{record.temper,jdbcType=INTEGER},
-      time = #{record.time,jdbcType=TIMESTAMP}
+      time = #{record.time,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -167,7 +167,7 @@
         temper = #{temper,jdbcType=INTEGER},
       </if>
       <if test="time != null" >
-        time = #{time,jdbcType=TIMESTAMP},
+        time = #{time,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -175,7 +175,7 @@
   <update id="updateByPrimaryKey" parameterType="com.guangbo.dao.entity.Temperature" >
     update temperature
     set temper = #{temper,jdbcType=INTEGER},
-      time = #{time,jdbcType=TIMESTAMP}
+      time = #{time,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
