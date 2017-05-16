@@ -68,11 +68,11 @@
         <!--<version>2.4</version>-->
         <!--<classifier>jdk15</classifier>-->
         <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>com.alibaba</groupId>-->
-        <!--<artifactId>fastjson</artifactId>-->
-        <!--<version>1.2.28</version>-->
-        <!--</dependency>-->
+        <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>1.2.28</version>
+        </dependency>
         <!--<dependency>-->
         <!--<groupId>commons-fileupload</groupId>-->
         <!--<artifactId>commons-fileupload</artifactId>-->

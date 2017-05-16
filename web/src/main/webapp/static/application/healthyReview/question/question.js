@@ -23,7 +23,7 @@ angular.module('myApp')
 				      	}
 					],
 			'Ajax': {
-					'url': '#',
+					'url': '/paper/getQuestions',
 				},
 				'asyn': true,
 		};
