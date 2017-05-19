@@ -11,6 +11,7 @@ angular.module('myApp')
     	}).error(function(data){});
     	$scope.subA = function(){
             alert("记录成功");
+            window.location.reload();
     		$http({
     		url:"#",
     		method:"POST",

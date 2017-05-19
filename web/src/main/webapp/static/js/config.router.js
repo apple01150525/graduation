@@ -205,5 +205,36 @@ angular.module('myApp')
                                 }
                             ]
                         }
+                    })
+                    .state('BBCindex', {
+                        url: "/BBCindex",
+                        templateUrl: "../../static/application/BBC/BBCindex/BBCindex.html?t=" + Math.floor(Date.now() / 1000),
+                        controller: "BBCindexController",
+                        controllerAs: "BBCindexCtrl",
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load([
+                                        '../../static/application/BBC/BBCindex/BBCindex.js?_2323',
+                                    ]);
+                                }
+                            ]
+                        }
+                    })
+                    .state('BBCDetail', {
+                        url: "/BBCDetail/:id",
+                        templateUrl: "../../static/application/BBC/BBCDetail/BBCDetail.html?t=" + Math.floor(Date.now() / 1000),
+                        controller: "BBCDetailController",
+                        controllerAs: "BBCDetailCtrl",
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load([
+                                        '../../static/application/BBC/BBCDetail/BBCDetail.js?_2323',
+                                        '../../static/application/BBC/BBCDetail/BBCDetail.css?_4423'
+                                    ]);
+                                }
+                            ]
+                        }
                     });
             }]);

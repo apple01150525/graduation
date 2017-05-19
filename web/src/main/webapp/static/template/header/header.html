@@ -26,9 +26,13 @@
             <i class="icon-skyatlas"></i>
             健康问卷
         </li>
-        <li class = "text-muted">
+        <li ng-class ="{active:menuForBBC}" ui-sref = "BBCindex">
             <i class="icon-shuffle"></i>
-            慢病预防
+            吐槽区
+            <ul>
+                <li ui-sref = "BBCindex"><i class="icon-anchor text-info"></i> 吐槽</li>
+                <li class = "text-muted"><i class="icon-list-numbered text-success"></i>广场</li>
+            </ul>
         </li>
         <li class = "text-muted">
             <i class="icon-key"></i>
