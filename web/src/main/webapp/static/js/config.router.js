@@ -216,6 +216,7 @@ angular.module('myApp')
                                 function($ocLazyLoad) {
                                     return $ocLazyLoad.load([
                                         '../../static/application/BBC/BBCindex/BBCindex.js?_2323',
+                                        '../../static/template/smartTable/smartTable.js?_34223',
                                     ]);
                                 }
                             ]
