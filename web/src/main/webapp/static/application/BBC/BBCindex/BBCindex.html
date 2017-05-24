@@ -9,21 +9,23 @@
 				</select>
 			</div>
 		</h3>
-		<div class="m-t-xl clearfix">
-			<ul>
-				<li class = "m-t-xs b-b-body p-b-sm clearfix">
-					<div class="col-xs-2">
-						<i class="icon-reply-outline"></i>12
-					</div>
-					<div class="col-xs-8">
-						<p ><a class="text-info pointer hover-info" ui-sref="BBCDetail({id:data.id})">[格式]哈哈哈</a></p>
-						<p>content</p>
-					</div>
-					<div class="col-xs-2">
-						<i class="icon-user-o"></i>111
-					</div>
-				</li>
-			</ul>
-		</div>
+		<smart-table id = "bbcIndexList">
+			<div class="m-t-xl clearfix">
+				<ul>
+					<li class = "m-t-xs b-b-body p-b-sm clearfix">
+						<div class="col-xs-2">
+							<i class="icon-reply-outline"></i>12
+						</div>
+						<div class="col-xs-8">
+							<p ><a class="text-info pointer hover-info" ui-sref="BBCDetail({id:data.id})">[格式]哈哈哈</a></p>
+							<p>content</p>
+						</div>
+						<div class="col-xs-2">
+							<i class="icon-user-o"></i>111
+						</div>
+					</li>
+				</ul>
+			</div>
+		</smart-table>
 	</div>
 </div>
