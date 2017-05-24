@@ -22,7 +22,7 @@ angular.module('myApp')
 				      	}
 					],
 			'Ajax': {
-					'url': '/paper/getQuestions',
+					'url': '/teizi/tiezis',
 				},
 				'asyn': false,
     	};
