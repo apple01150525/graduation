@@ -60,7 +60,12 @@
 		<!--<table tableName="temperature" domainObjectName="Temperature"/>-->
 		<!--<table tableName="choose_question" domainObjectName="ChooseQuestion"/>-->
 		<!--<table tableName="user_answer" domainObjectName="UserAnswer"/>-->
-		<table tableName="news" domainObjectName="News"/>
+		<!--<table tableName="news" domainObjectName="News"/>-->
+		<!--<table tableName="tiezi" domainObjectName="Tiezi"/>-->
+		<table tableName="tiezi_reback" domainObjectName="TieziReback"/>
+		<!--<table tableName="tiezi_type" domainObjectName="TieziType"/>-->
+
+
 	</context>
 
 </generatorConfiguration> 
