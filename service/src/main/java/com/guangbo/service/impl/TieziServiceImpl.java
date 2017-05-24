@@ -19,7 +19,7 @@ public class TieziServiceImpl implements ITieZiService {
     private TieziMapper tieziMapper;
 
     public int insert(Tiezi record) {
-        return tieziMapper.insertSelective(tieziMapper);
+        return tieziMapper.insertSelective(record);
     }
 
     public int delete(Tiezi record) {
