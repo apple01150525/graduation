@@ -10,10 +10,6 @@
             <i class="icon-align-left"></i>
             Home
         </li>
-        <li ui-sref="healthyNews">
-            <i class="icon-podcast"></i>
-            保健养生
-        </li>
         <li ng-class ="{active:menuForAsk}">
             <i class="icon-address"></i>
             健康监测
@@ -24,7 +20,13 @@
         </li>
         <li ng-class ="{active:menuForQuestion}" ui-sref = "question">
             <i class="icon-skyatlas"></i>
-            健康问卷
+            健康广场
+            <ul>
+                <li ui-sref="healthyNews">
+                    <i class="icon-podcast"></i>
+                    保健养生
+                </li>
+            </ul>
         </li>
         <li ng-class ="{active:menuForBBC}" ui-sref = "BBCindex">
             <i class="icon-shuffle"></i>
@@ -32,21 +34,6 @@
             <ul>
                 <li ui-sref = "BBCindex"><i class="icon-anchor text-info"></i> 吐槽</li>
                 <li class = "text-muted"><i class="icon-list-numbered text-success"></i>广场</li>
-            </ul>
-        </li>
-        <li class = "text-muted">
-            <i class="icon-key"></i>
-            疾病症状
-            <ul>
-                <li ui-sref="roleAuthority"><i class="icon-king text-info"></i> 查询</li>
-                <li ui-sref="userAuthority"><i class="icon-users-1 text-success"></i> 问诊</li>
-            </ul>
-        </li>
-        <li class = "text-muted">
-            <i class="icon-tools"></i>
-            关于我们
-            <ul>
-                <li class = "text-muted"><i class="icon-newspaper text-info"></i> 了解</li>
             </ul>
         </li>
     </ul>
