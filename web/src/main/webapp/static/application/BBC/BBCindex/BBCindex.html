@@ -4,22 +4,22 @@
 		<h3 class="b-b-body p-b-sm m-b-lg">
 			<span class = "b-b-h3-span">吐槽广场</span>
 			<div class="f-r">
-				<button class = "btn btn-info f-r" ng-click = "">我要吐槽</button>
-				<select name="" id="" class="form-control f-r">
+				<select name="" id="" class="form-inline m-l-xs f-r">
 					<option>11</option>
 				</select>
+				<button class = "btn btn-info f-r" ng-click = "send();">我要吐槽</button>
 			</div>
 		</h3>
 		<smart-table id = "bbcIndexList">
 			<div class="m-t-xl clearfix">
 				<ul>
-					<li class = "m-t-xs b-b-body p-b-sm clearfix">
+					<li class = "m-t-xs b-b-body p-b-sm clearfix" ng-repeat = "data in bbcIndexList.result.results">
 						<div class="col-xs-2">
-							<i class="icon-reply-outline"></i>12
+							<i class="icon-reply-outline"></i>{{data.rebacktimes}}
 						</div>
 						<div class="col-xs-8">
-							<p ><a class="text-info pointer hover-info" ui-sref="BBCDetail({id:data.id})">[格式]哈哈哈</a></p>
-							<p>content</p>
+							<p ><a class="text-info pointer hover-info" ui-sref="BBCDetail({id:data.id,title:data.title,content:data.content,rebacktimes:data.rebacktimes})">{{data.title}}</a></p>
+							<p>{{data.content}}</p>
 						</div>
 						<div class="col-xs-2">
 							<i class="icon-user-o"></i>111
@@ -30,3 +30,33 @@
 		</smart-table>
 	</div>
 </div>
+
+<!-- 弹窗开始 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title" id="myModalLabel">吐槽</h4>
+			</div>
+			<div class="modal-body">
+				<!-- <ul>
+					<li class="f-l"><button class = "btn btn-sm btn-default">111</button> </li>
+				</ul> -->
+				<div class="col-xs-2">
+					<label>标题：</label>
+				</div>
+				<div class="col-xs-10">
+					<input type="text" name="title" class = "form-control" ng-model = "sendTitle">
+				</div>
+				<div class="clearfix"></div>
+				<textarea class = "form-control m-t-xs" cols="30" rows="9" ng-model = "sendContent"></textarea>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" id="modal_x" data-dismiss="modal">关闭</button>
+				<button type="button" ng-click="clickOK()" class="btn btn-info">提交</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 弹窗结束 -->

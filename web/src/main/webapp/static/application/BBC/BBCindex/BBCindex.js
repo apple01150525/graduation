@@ -22,10 +22,35 @@ angular.module('myApp')
 				      	}
 					],
 			'Ajax': {
-					'url': '/teizi/tiezis',
+					'url': '/tiezi/tiezis',
+					'params':{
+						'pageSize':10,
+						'pageNum':100
+					}
 				},
 				'asyn': false,
     	};
+
+    	$scope.send = function(){
+    		$('#myModal').modal('show');
+    	}
+    	$scope.clickOK = function(){
+    		$http({
+    			url:"/tiezi/addTiezi",
+    			method:"post",
+    			params:{
+    				authorId:1,
+    				title:$scope.sendTitle,
+    				content:$scope.sendContent,
+    				typeId:1,
+    			}
+    		}).success(function(data){
+    			if(data.code == 00){
+    				$('#myModal').modal('hide');
+    				window.location.reload();
+    			}
+    		}).error(function(){});
+    	}
     	$scope.$on("$destroy", function() {
            $rootScope.menuForAsk = false;
         });

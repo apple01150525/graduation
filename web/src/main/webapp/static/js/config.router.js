@@ -217,13 +217,14 @@ angular.module('myApp')
                                     return $ocLazyLoad.load([
                                         '../../static/application/BBC/BBCindex/BBCindex.js?_2323',
                                         '../../static/template/smartTable/smartTable.js?_34223',
+                                        '../../static/lib/bootstrap/js/bootstrap.js'
                                     ]);
                                 }
                             ]
                         }
                     })
                     .state('BBCDetail', {
-                        url: "/BBCDetail/:id",
+                        url: "/BBCDetail/:id/:title/:content/:rebacktimes",
                         templateUrl: "../../static/application/BBC/BBCDetail/BBCDetail.html?t=" + Math.floor(Date.now() / 1000),
                         controller: "BBCDetailController",
                         controllerAs: "BBCDetailCtrl",
@@ -232,7 +233,8 @@ angular.module('myApp')
                                 function($ocLazyLoad) {
                                     return $ocLazyLoad.load([
                                         '../../static/application/BBC/BBCDetail/BBCDetail.js?_2323',
-                                        '../../static/application/BBC/BBCDetail/BBCDetail.css?_4423'
+                                        '../../static/application/BBC/BBCDetail/BBCDetail.css?_4423',
+                                        '../../static/lib/bootstrap/js/bootstrap.js'
                                     ]);
                                 }
                             ]

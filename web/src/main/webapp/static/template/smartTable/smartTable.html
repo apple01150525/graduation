@@ -23,7 +23,7 @@
 <div ng-transclude></div>
 <div class="smartTable-footer">
 	<div class="smartTable-info">
-		<span>显示第 {{smartTable.from + 1}} 到 {{smartTable.to}} 条 / 共计 {{smartTable.count}} 条</span>
+		<span>显示第 {{smartTable.from + 1}} 到 {{smartTable.to}} 条 / 共计 {{smartTable.result.count}} 条</span>
 		<button class="btn btn-sm btn-default" ng-json-export-excel report-fields="smartTable.loadDown.json2excel.excelTitle" filename="smartTable.loadDown.json2excel.excelFileName" url="smartTable.loadDown.json2excel.excelUrl" ng-show="smartTable.loadDown.json2excel.show">下载</button>
 		<button class="btn btn-sm btn-default" ng-show="smartTable.loadDown.link.show"><a href="{{smartTable.loadDown.link.url}}">下载</a></button>
 	</div>
