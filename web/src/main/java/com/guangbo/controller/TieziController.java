@@ -3,6 +3,7 @@ package com.guangbo.controller;
 import com.guangbo.common.WebResult;
 import com.guangbo.dao.entity.Tiezi;
 import com.guangbo.dao.entity.TieziReback;
+import com.guangbo.dao.entity.TieziRebackExample;
 import com.guangbo.dao.entity.TieziType;
 import com.guangbo.dao.po.PageInfoPO;
 import com.guangbo.service.ITieZiService;
@@ -121,13 +122,18 @@ public class TieziController {
      */
     @RequestMapping("/getBack/{type}")
     @ResponseBody
-    public WebResult getFirstReback(TieziReback record, Integer pageNum, Integer pageSize, @PathVariable Byte type) {
+    public WebResult getReback(TieziReback record, Integer pageNum, Integer pageSize, @PathVariable Byte type) {
         WebResult webResult = new WebResult();
         webResult.setCode("00");
         webResult.setMsg("成功");
         record.setType(type);
-        PageInfoPO<TieziReback> tieziRebackPageInfoPO = tieziRebackService.queryByPage(record, pageNum, pageSize);
-        webResult.setResult(tieziRebackPageInfoPO);
+        if (pageNum == null) {
+            List<TieziReback> rebacks = tieziRebackService.query(record);
+            webResult.setResult(rebacks);
+        } else {
+            PageInfoPO<TieziReback> resPage = tieziRebackService.queryByPage(record, pageNum, pageSize);
+            webResult.setResult(resPage);
+        }
         return webResult;
     }
 }

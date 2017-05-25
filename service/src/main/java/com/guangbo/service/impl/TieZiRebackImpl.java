@@ -27,7 +27,19 @@ public class TieZiRebackImpl implements ITieziRebackService {
     }
 
     public List<TieziReback> query(TieziReback record) {
-        return null;
+        TieziRebackExample example = new TieziRebackExample();
+        TieziRebackExample.Criteria criteria = example.createCriteria();
+        if (record.getType() != null) {
+            criteria.andTypeEqualTo(record.getType());
+        }
+        if (record.getUserId() != null) {
+            criteria.andUserIdEqualTo(record.getUserId());
+        }
+        if (record.gettId() != null) {
+            criteria.andTIdEqualTo(record.gettId());
+        }
+        List<TieziReback> tieziRebacks = tieziRebackMapper.selectByExampleWithBLOBs(example);
+        return tieziRebacks;
     }
 
     public int update(TieziReback record) {
