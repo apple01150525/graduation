@@ -4,22 +4,22 @@
 		<h3 class="b-b-body p-b-sm m-b-lg">
 			<span class = "b-b-h3-span">吐槽广场</span>
 			<div class="f-r">
-				<button class = "btn btn-info f-r" ng-click = "">我要吐槽</button>
-				<select name="" id="" class="form-control f-r">
+				<select name="" id="" class="form-inline m-l-xs f-r">
 					<option>11</option>
 				</select>
+				<button class = "btn btn-info f-r" ng-click = "">我要吐槽</button>
 			</div>
 		</h3>
 		<smart-table id = "bbcIndexList">
 			<div class="m-t-xl clearfix">
 				<ul>
-					<li class = "m-t-xs b-b-body p-b-sm clearfix">
+					<li class = "m-t-xs b-b-body p-b-sm clearfix" ng-repeat = "data in bbcIndexList.result.results">
 						<div class="col-xs-2">
-							<i class="icon-reply-outline"></i>12
+							<i class="icon-reply-outline"></i>{{data.rebacktimes}}
 						</div>
 						<div class="col-xs-8">
-							<p ><a class="text-info pointer hover-info" ui-sref="BBCDetail({id:data.id})">[格式]哈哈哈</a></p>
-							<p>content</p>
+							<p ><a class="text-info pointer hover-info" ui-sref="BBCDetail({id:data.id})">{{data.title}}</a></p>
+							<p>{{data.content}}</p>
 						</div>
 						<div class="col-xs-2">
 							<i class="icon-user-o"></i>111

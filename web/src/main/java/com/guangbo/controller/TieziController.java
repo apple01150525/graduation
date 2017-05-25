@@ -107,8 +107,10 @@ public class TieziController {
     /**
      * 查询第一、第二回复
      *
-     * @param record record.tid 回复id
+     * @param record record.tid 回复i
      *               type 0:一级回帖  1：二级回帖
+     *               userId
+     *               tId 原贴id
      * @return
      */
     @RequestMapping("/getBack/{type}")

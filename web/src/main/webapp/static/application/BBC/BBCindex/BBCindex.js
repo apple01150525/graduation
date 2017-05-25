@@ -22,7 +22,11 @@ angular.module('myApp')
 				      	}
 					],
 			'Ajax': {
-					'url': '/teizi/tiezis',
+					'url': '/tiezi/tiezis',
+					'params':{
+						'pageSize':10,
+						'pageNum':100
+					}
 				},
 				'asyn': false,
     	};
