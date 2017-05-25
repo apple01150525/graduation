@@ -70,9 +70,17 @@ public class TieziController {
     @ResponseBody
     public WebResult getTiezi(Tiezi record, Integer pageNum, Integer pageSize) {
         WebResult result = new WebResult();
+        result.setCode("01");
+        result.setMsg("失败");
+        if (pageNum == null) {
+            return result;
+        }
+        if (pageSize == null) {
+            return result;
+        }
+        PageInfoPO<Tiezi> tieziPageInfoPO = tieZiService.queryByPage(record, pageNum, pageSize);
         result.setCode("00");
         result.setMsg("成功");
-        PageInfoPO<Tiezi> tieziPageInfoPO = tieZiService.queryByPage(record, pageNum, pageSize);
         result.setResult(tieziPageInfoPO);
         return result;
     }
