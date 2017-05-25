@@ -301,4 +301,11 @@
       repay_time = #{repayTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <!--更新帖子回帖数-->
+  <update id="updateRebackTimes" parameterType="java.lang.Integer" >
+    update tiezi_reback
+    set
+    rebacktimes = rebacktimes + 1
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>

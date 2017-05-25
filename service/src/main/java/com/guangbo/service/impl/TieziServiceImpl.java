@@ -47,4 +47,8 @@ public class TieziServiceImpl implements ITieZiService {
         results.setResults(tiezis);
         return results;
     }
+
+    public int updateRebackTimes(int id) {
+        return tieziMapper.updateRebackTimes(id);
+    }
 }

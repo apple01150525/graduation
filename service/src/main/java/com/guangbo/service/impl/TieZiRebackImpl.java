@@ -1,9 +1,11 @@
 package com.guangbo.service.impl;
 
+import com.guangbo.dao.entity.Tiezi;
 import com.guangbo.dao.entity.TieziReback;
 import com.guangbo.dao.entity.TieziRebackExample;
 import com.guangbo.dao.mapper.TieziRebackMapper;
 import com.guangbo.dao.po.PageInfoPO;
+import com.guangbo.service.ITieZiService;
 import com.guangbo.service.ITieziRebackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +20,14 @@ import java.util.List;
 public class TieZiRebackImpl implements ITieziRebackService {
     @Autowired
     private TieziRebackMapper tieziRebackMapper;
+    @Autowired
+    private ITieZiService tieZiService;
     public int insert(TieziReback record) {
+        if (record.getType() == 0) {
+            tieZiService.updateRebackTimes(record.gettId());
+        } else if (record.getType() == 1) {
+            updateRebackTimes(record.gettId());
+        }
         return tieziRebackMapper.insertSelective(record);
     }
 
@@ -66,5 +75,9 @@ public class TieZiRebackImpl implements ITieziRebackService {
         results.setResults(tieziRebacks);
         results.setCount(count);
         return results;
+    }
+
+    public int updateRebackTimes(int id) {
+        return tieziRebackMapper.updateRebackTimes(id);
     }
 }

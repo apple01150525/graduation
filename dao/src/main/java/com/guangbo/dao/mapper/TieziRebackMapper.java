@@ -33,4 +33,6 @@ public interface TieziRebackMapper {
     int updateByPrimaryKeyWithBLOBs(TieziReback record);
 
     int updateByPrimaryKey(TieziReback record);
+
+    int updateRebackTimes(Integer id);
 }
