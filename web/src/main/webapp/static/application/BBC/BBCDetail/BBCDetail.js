@@ -4,19 +4,62 @@ angular.module('myApp')
     {
     	$rootScope.menuForBBC = true;
     	$scope.id = $stateParams.id;
+    	$scope.title = $stateParams.title;
+    	$scope.content = $stateParams.content;
+    	$scope.rebacktimes = $stateParams.rebacktimes;
     	$http({
     		url:"/tiezi/getBack/0",
     		method:"get",
     		params:{
-    			pageSize:10,
-				pageNum:100,
     			tId:$scope.id
     		}
     	}).success(function(data){
-    		console.log();
+    		$scope.reback = data.result;
+    		console.log($scope.reback);
     	}).error(function(data){
     		console.log();
     	});
+
+    	$scope.replySecond = function(id){
+    		$scope.flag = !$scope.flag;
+    		$http({
+    		url:"/tiezi/getBack/1",
+    		method:"get",
+    		params:{
+    			tId:id
+    		}
+    	}).success(function(data){
+    		$scope.rebackSecond = data.result;
+    		console.log($scope.rebackSecond);
+    	}).error(function(data){
+    		console.log();
+    	});
+    	}
+
+    	$scope.reply =function(id,type){
+    		$scope.tId = id;
+    		$scope.tType = type;
+			$('#myModal').modal('show');
+		}
+
+		$scope.clickOK = function(){
+			$http({
+				url:'tiezi/addTieziReback',
+				method : "post",
+				params:{
+					tId:$scope.tId,
+					type:$scope.tType,
+					UserId:1,
+					content:$scope.replyContent
+				}
+			}).success(function(data){
+				if(data.code == 00){
+					$('#myModal').modal('hide');
+					window.location.reload();
+				}
+			}).error(function(){});
+		}
+
     	$scope.$on("$destroy", function() {
            $rootScope.menuForBBC = false;
         });

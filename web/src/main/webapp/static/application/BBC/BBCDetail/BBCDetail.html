@@ -2,35 +2,40 @@
 <div id="content" class="no-menu">
 	<div class="panel-center">
 		<h3 class="b-b-body p-b-sm m-b-lg">
-			<span class = "b-b-h3-span">title</span>
-			<button class="btn btn-info f-r" ui-sref="#" ng-click = "reply()">发表回复</button>
+			<span class = "b-b-h3-span">{{title}}</span>
+			<button class="btn btn-info f-r" ng-click = "reply(id,0)">发表回复</button>
 		</h3>
 		<div class = "p-l-lg p-r-lg p-b-lg  b-b-body clearfix">
 			<p class = "text-info">12345
 				<span class = "f-r pointer">
-					回复（12）</span>
+					回复（{{rebacktimes}}）</span>
 			</p>
-			<p>今天天气真好,哈哈哈哈</p>
+			<p>{{content}}</p>
 		</div>
 		<div class = "p-l-lg m-t-lg clearfix">
 			<ul>
-				<li class = "m-t-xs b-b-body p-b-sm clearfix">
+				<li class = "m-t-xs b-b-body p-b-sm clearfix" ng-repeat = "data in reback">
 					<div class="col-xs-2">
 						<i class="icon-user-o"></i>111回复：
 					</div>
 					<div class="col-xs-8">
-						<p>content</p>
+						<p>{{data.content}}</p>
 					</div>
 					<div class="col-xs-2">
-						<span class= "text-info pointer" ng-click = "flag = !flag">回复（12）</span>
+						<span class= "text-info pointer" ng-click = "replySecond(data.id);">回复（{{data.rebacktimes}}）</span>
+						<button class="btn btn-sm btn-default f-r" ng-click = "reply(data.id,1)">回复</button>
 					</div>
+					<h3 class="b-b-body p-b-sm m-b-lg m-t-lg" ng-show = "flag"></h3>
 					<ul class = "m-t-lg p-l-lg p-b-sm clearfix" ng-if = "flag">
-						<li class = "m-t-xs p-b-sm clearfix" ng-class = "{b-b-body:$last}">
+						<li class = "m-t-xs p-b-sm clearfix" ng-class = "{'b-b-body':!$last}" ng-repeat = "item in rebackSecond">
 							<div class="col-xs-2">
 								<i class="icon-user-o"></i>111回复111：
 							</div>
-							<div class="col-xs-10">
-								<p>content</p>
+							<div class="col-xs-8">
+								<p>{{item.content}}</p>
+							</div>
+							<div class="col-xs-2">
+								<button class="btn btn-sm btn-default f-r" ng-click = "reply(item.id,1)">回复</button>
 							</div>
 						</li>
 					</ul>
@@ -39,3 +44,23 @@
 		</div>
 	</div>
 </div>
+
+<!-- 弹窗开始 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title" id="myModalLabel">回复</h4>
+			</div>
+			<div class="modal-body">
+				<textarea class = "form-control" cols="30" rows="9" ng-model = "replyContent"></textarea>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" id="modal_x" data-dismiss="modal">关闭</button>
+				<button type="button" ng-click="clickOK()" class="btn btn-info">提交</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 弹窗结束 -->
