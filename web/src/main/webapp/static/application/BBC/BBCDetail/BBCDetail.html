@@ -25,8 +25,8 @@
 						<span class= "text-info pointer" ng-click = "replySecond(data.id);">回复（{{data.rebacktimes}}）</span>
 						<button class="btn btn-sm btn-default f-r" ng-click = "reply(data.id,1)">回复</button>
 					</div>
-					<h3 class="b-b-body p-b-sm m-b-lg m-t-lg" ng-show = "flag"></h3>
-					<ul class = "m-t-lg p-l-lg p-b-sm clearfix" ng-if = "flag">
+					<h3 class="b-b-body p-b-sm m-b-lg m-t-lg" ng-show = "flag[data.id]"></h3>
+					<ul class = "m-t-lg p-l-lg p-b-sm clearfix" ng-if = "flag[data.id]">
 						<li class = "m-t-xs p-b-sm clearfix" ng-class = "{'b-b-body':!$last}" ng-repeat = "item in rebackSecond">
 							<div class="col-xs-2">
 								<i class="icon-user-o"></i>111回复111：

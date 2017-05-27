@@ -19,9 +19,9 @@ angular.module('myApp')
     	}).error(function(data){
     		console.log();
     	});
-
+    	$scope.flag = [];
     	$scope.replySecond = function(id){
-    		$scope.flag = !$scope.flag;
+    		$scope.flag[id] = !$scope.flag[id];
     		$http({
     		url:"/tiezi/getBack/1",
     		method:"get",
